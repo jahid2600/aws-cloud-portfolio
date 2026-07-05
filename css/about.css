@@ -1,0 +1,231 @@
+/* ==========================================
+   ABOUT SECTION
+========================================== */
+
+.about{
+
+    background:#111827;
+
+}
+
+/* ==========================================
+   ABOUT GRID
+========================================== */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+/* ==========================================
+   ABOUT CARD
+========================================== */
+
+.about-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:260px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+}
+
+/* Top Border Animation */
+
+.about-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:var(--primary);
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.4s;
+
+}
+
+.about-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+.about-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+    font-size:1.35rem;
+
+}
+
+/* ==========================================
+   PARAGRAPH
+========================================== */
+
+.about-card p{
+
+    color:var(--text-secondary);
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================================
+   LEARNING LIST
+========================================== */
+
+.learning-list{
+
+    margin-top:10px;
+
+}
+
+.learning-list li{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    color:var(--text-secondary);
+
+}
+
+.learning-list li::before{
+
+    content:"✔";
+
+    color:var(--primary);
+
+    font-weight:bold;
+
+    margin-right:12px;
+
+}
+
+/* ==========================================
+   CARD HOVER
+========================================== */
+
+.about-card:hover{
+
+    border-color:var(--primary);
+
+}
+
+/* ==========================================
+   SMALL ANIMATION
+========================================== */
+
+.about-card{
+
+    transition:all .35s ease;
+
+}
+
+.about-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+/* ==========================================
+   BACKGROUND DECORATION
+========================================== */
+
+.about{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.about::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+
+    height:400px;
+
+    background:rgba(255,153,0,.05);
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    right:-150px;
+
+    top:50px;
+
+    z-index:0;
+
+}
+
+.about .container{
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+/* ==========================================
+   EDUCATION CARD
+========================================== */
+
+.about-card strong{
+
+    color:white;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

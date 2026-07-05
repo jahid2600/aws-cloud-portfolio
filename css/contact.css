@@ -1,0 +1,177 @@
+/* ==========================================
+   CONTACT SECTION
+========================================== */
+
+.contact{
+
+    background:var(--background);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================
+   CONTACT GRID
+========================================== */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+/* ==========================================
+   CONTACT CARD
+========================================== */
+
+.contact-card{
+
+    text-align:center;
+
+    transition:all .35s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:180px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+/* ==========================================
+   TOP BORDER
+========================================== */
+
+.contact-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:var(--primary);
+
+    transform:scaleX(0);
+
+    transition:.35s;
+
+}
+
+.contact-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.contact-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+    font-size:1.3rem;
+
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.contact-card p{
+
+    color:var(--text-secondary);
+
+}
+
+.contact-card a{
+
+    color:var(--text);
+
+    transition:.3s;
+
+    word-break:break-word;
+
+}
+
+.contact-card a:hover{
+
+    color:var(--primary);
+
+}
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.contact-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 20px 50px rgba(255,153,0,.15);
+
+}
+
+/* ==========================================
+   BACKGROUND GLOW
+========================================== */
+
+.contact::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    background:rgba(255,153,0,.05);
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    right:-180px;
+
+    bottom:-180px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
