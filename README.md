@@ -8,7 +8,7 @@ This project is the first milestone in my journey toward becoming an **AWS Cloud
 
 ## 🚀 Live Demo
 
-🌍 **Website:** https://d1r2w0lrm8esxc.cloudfront.net
+🌍 **Website:** https://jahidalam.cloud
 
 
 ```
