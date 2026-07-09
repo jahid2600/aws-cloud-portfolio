@@ -68,33 +68,10 @@ Implemented CI/CD components:
 
 ## 🏗️ Architecture Overview
 
-```text
-Developer
-   |
-   | Push code
-   v
-GitHub Repository
-   |
-   | GitHub Actions Workflow
-   v
-AWS OIDC Authentication
-   |
-   v
-IAM Role: GitHubActionsPortfolioDeployRole
-   |
-   v
-Amazon S3 Bucket
-   |
-   v
-Amazon CloudFront
-   |
-   v
-Route 53 + Custom Domain + HTTPS
-   |
-   v
-Users access website at jahidalam.cloud
-```
+![Version 3 CI/CD Architecture](assets/images/version-3-cicd-architecture.png)
 
+The Version 3 architecture automates the deployment process using GitHub Actions and AWS OIDC.  
+Whenever code is pushed to the main branch, GitHub Actions securely authenticates with AWS, assumes the IAM role, deploys files to Amazon S3, and invalidates the CloudFront cache so the latest version becomes live on jahidalam.cloud.
 ---
 
 ## 🛠️ Tech Stack
