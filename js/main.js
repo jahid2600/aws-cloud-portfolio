@@ -71,3 +71,15 @@ if (copyright) {
     copyright.innerHTML = `© ${year} MD JAHID ALAM. All Rights Reserved.`;
 
 }
+
+const visitorCountElement = document.getElementById("visitor-count");
+
+fetch("https://cqsalh5sgf.execute-api.ap-south-1.amazonaws.com/visitor-count")
+    .then(response => response.json())
+    .then(data => {
+        visitorCountElement.textContent = data.count;
+    })
+    .catch(error => {
+        console.error("Error fetching visitor count:", error);
+        visitorCountElement.textContent = "Unavailable";
+    });
