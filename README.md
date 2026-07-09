@@ -1,5 +1,7 @@
 # 🌐 AWS Cloud Portfolio Website
 
+[![Deploy Portfolio](https://github.com/jahid2600/aws-cloud-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/jahid2600/aws-cloud-portfolio/actions/workflows/deploy.yml)
+
 A modern, responsive personal portfolio website built using **HTML, CSS, and JavaScript**, deployed on **Amazon Web Services**, and automated using **GitHub Actions CI/CD**.
 
 This project is part of my journey toward becoming an **AWS Cloud Engineer** and is being built step-by-step as a real-world cloud portfolio project.
