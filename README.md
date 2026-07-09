@@ -1,8 +1,8 @@
 # 🌐 AWS Cloud Portfolio Website
 
-A modern, responsive personal portfolio website built using **HTML, CSS, and JavaScript**, and deployed on **Amazon Web Services (AWS)** using **Amazon S3** and **Amazon CloudFront**.
+A modern, responsive personal portfolio website built using **HTML, CSS, and JavaScript**, deployed on **Amazon Web Services**, and automated using **GitHub Actions CI/CD**.
 
-This project is the first milestone in my journey toward becoming an **AWS Cloud Engineer** and serves as the foundation for my Cloud Resume Challenge.
+This project is part of my journey toward becoming an **AWS Cloud Engineer** and is being built step-by-step as a real-world cloud portfolio project.
 
 ---
 
@@ -10,219 +10,213 @@ This project is the first milestone in my journey toward becoming an **AWS Cloud
 
 🌍 **Website:** https://jahidalam.cloud
 
+---
 
+## 📌 Project Versions
+
+### ✅ Version 1.0 — Static Website Hosting on AWS
+
+In Version 1, I built and deployed a personal portfolio website using:
+
+* HTML
+* CSS
+* JavaScript
+* Amazon S3
+* Amazon CloudFront
+
+The website was hosted as a static website using **Amazon S3**, and **CloudFront** was used for faster global content delivery.
+
+---
+
+### ✅ Version 2.0 — Custom Domain + HTTPS
+
+In Version 2, I connected my portfolio website with a custom domain and secured it using HTTPS.
+
+Implemented services:
+
+* Amazon Route 53
+* AWS Certificate Manager
+* Amazon CloudFront
+* Custom Domain: `jahidalam.cloud`
+* HTTPS using SSL/TLS certificate
+
+This version made the portfolio more professional, secure, and production-ready.
+
+---
+
+### ✅ Version 3.0 — CI/CD Automation with GitHub Actions
+
+In Version 3, I automated the deployment process using **GitHub Actions** and AWS **OIDC authentication**.
+
+Now, whenever changes are pushed to the GitHub repository, the workflow automatically deploys the latest website files to Amazon S3 and refreshes the CloudFront distribution.
+
+Implemented CI/CD components:
+
+* GitHub Actions workflow
+* AWS OIDC Identity Provider
+* IAM Role for GitHub Actions
+* IAM Policy with required deployment permissions
+* GitHub Repository Secrets
+* GitHub Repository Variables
+* Automated S3 deployment
+* CloudFront cache invalidation
+* Secure deployment without long-term AWS access keys
+
+---
+
+## 🏗️ Architecture Overview
+
+```text
+Developer
+   |
+   | Push code
+   v
+GitHub Repository
+   |
+   | GitHub Actions Workflow
+   v
+AWS OIDC Authentication
+   |
+   v
+IAM Role: GitHubActionsPortfolioDeployRole
+   |
+   v
+Amazon S3 Bucket
+   |
+   v
+Amazon CloudFront
+   |
+   v
+Route 53 + Custom Domain + HTTPS
+   |
+   v
+Users access website at jahidalam.cloud
 ```
-assets/images/portfolio-preview.png
-```
 
 ---
 
-# 📖 About the Project
-
-This portfolio website showcases my skills, certifications, projects, and learning journey in Cloud Computing.
-
-The website is designed to be:
-
-- Responsive
-- Mobile Friendly
-- Fast
-- Modern
-- Professional
-- Fully Hosted on AWS
-
-This project demonstrates the fundamentals of static website hosting and content delivery using AWS services.
-
----
-
-# ✨ Features
-
-- Responsive Design
-- Modern UI
-- Dark Theme
-- Smooth Navigation
-- Professional Hero Section
-- About Me
-- Skills Section
-- AWS Certification
-- Projects Section
-- Resume Download
-- Contact Information
-- Mobile Friendly Layout
-- Hosted on AWS
-
----
-
-# 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
 ### Frontend
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
+* HTML
+* CSS
+* JavaScript
 
-### Cloud Services
+### AWS Services
 
-- Amazon S3
-- Amazon CloudFront
+* Amazon S3
+* Amazon CloudFront
+* Amazon Route 53
+* AWS Certificate Manager
+* AWS IAM
+* AWS OIDC
 
-### Tools
+### DevOps / Automation
 
-- Git
-- GitHub
-- Visual Studio Code
-
----
-
-# ☁️ AWS Architecture
-
-```
-                User
-                  │
-                  ▼
-        Amazon CloudFront
-                  │
-                  ▼
-      Amazon S3 Static Website
-                  │
-                  ▼
-     HTML • CSS • JavaScript
-```
+* GitHub
+* GitHub Actions
+* CI/CD Pipeline
+* GitHub Secrets
+* GitHub Variables
 
 ---
 
-# 📂 Project Structure
+## 🔐 Security Improvements in Version 3
 
-```
+This project uses **OIDC-based authentication** between GitHub Actions and AWS.
+
+Instead of storing long-term AWS access keys in GitHub, GitHub Actions securely assumes an IAM Role using OIDC.
+
+Benefits:
+
+* No permanent AWS access keys stored in GitHub
+* More secure deployment process
+* Least-privilege IAM permissions
+* Production-style CI/CD setup
+
+---
+
+## ⚙️ CI/CD Workflow Summary
+
+The deployment workflow performs the following steps:
+
+1. Checkout the latest repository code
+2. Authenticate with AWS using OIDC
+3. Sync website files to the S3 bucket
+4. Invalidate CloudFront cache
+5. Deploy the latest version of the portfolio website
+
+---
+
+## 📁 Project Structure
+
+```text
 aws-cloud-portfolio/
 │
 ├── index.html
-│
-├── css/
-│   ├── design-system.css
-│   ├── header.css
-│   ├── hero.css
-│   ├── about.css
-│   ├── skills.css
-│   ├── projects.css
-│   ├── contact.css
-│   ├── footer.css
-│   └── responsive.css
-│
-├── js/
-│   ├── main.js
-│   ├── navigation.js
-│   └── theme.js
-│
+├── README.md
 ├── assets/
 │   ├── images/
-│   ├── icons/
 │   └── documents/
 │
-└── README.md
+├── css/
+│   └── style files
+│
+├── js/
+│   └── script files
+│
+└── .github/
+    └── workflows/
+        └── deploy.yml
 ```
 
 ---
 
-# 🚀 Deployment
+## 🎯 What I Learned
 
-The website is deployed using:
+Through this project, I learned:
 
-- Amazon S3 Static Website Hosting
-- Amazon CloudFront CDN
-- HTTPS via CloudFront
-- Origin Access Control (OAC)
-
-Deployment Steps:
-
-1. Create an S3 Bucket
-2. Upload Website Files
-3. Enable Static Website Hosting
-4. Configure Bucket Policy
-5. Create CloudFront Distribution
-6. Configure Origin Access Control (OAC)
-7. Set Default Root Object (`index.html`)
-8. Deploy Website
+* How to host a static website on Amazon S3
+* How to distribute content globally using CloudFront
+* How to connect a custom domain using Route 53
+* How to enable HTTPS using AWS Certificate Manager
+* How to create IAM policies and IAM roles
+* How to use GitHub Actions for CI/CD
+* How to use AWS OIDC for secure deployments
+* How to automate deployment from GitHub to AWS
 
 ---
 
-# 📚 Current Status
+## 📌 Current Version
 
-## ✅ Completed
+**Version 3.0 — CI/CD Automation Completed**
 
-- Responsive Portfolio Website
-- Amazon S3 Hosting
-- CloudFront Distribution
-- HTTPS Enabled
-- GitHub Repository
-- Mobile Responsive Design
-
-## 🚧 Coming Soon
-
-- Visitor Counter using AWS Lambda
-- Amazon API Gateway
-- Amazon DynamoDB
-- Route 53 Custom Domain
-- AWS Certificate Manager (SSL)
-- Contact Form using AWS SES
-- GitHub Actions CI/CD
-- Terraform Infrastructure as Code
+The portfolio website is now deployed using an automated CI/CD pipeline with GitHub Actions and AWS.
 
 ---
 
-# 🎯 Learning Objectives
+## 🚧 Upcoming Version
 
-This project helped me gain hands-on experience with:
+### Version 4.0 — Visitor Counter
 
-- Static Website Hosting
-- AWS CloudFront
-- CDN
-- HTTPS Configuration
-- Origin Access Control (OAC)
-- S3 Bucket Policies
-- Git & GitHub
-- Responsive Web Design
+Planned features:
+
+* Serverless visitor counter
+* Amazon API Gateway
+* AWS Lambda
+* Amazon DynamoDB
+* JavaScript API integration
+* Real-time visitor count on portfolio website
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-## MD JAHID ALAM
+**MD JAHID ALAM**
 
+AWS Certified Cloud Practitioner
 Aspiring AWS Cloud Engineer
+Building real-world AWS Cloud and DevOps projects
 
-📍 Kharagpur, West Bengal, India
-
----
-
-## Connect With Me
-
-**LinkedIn**
-
-https://www.linkedin.com/in/md-jahid-alam-892201245/
-
-**GitHub**
-
-https://github.com/jahid2600
-
----
-
-# ⭐ Future Enhancements
-
-- Cloud Resume Challenge Completion
-- Serverless Visitor Counter
-- Infrastructure as Code with Terraform
-- GitHub Actions CI/CD
-- Route 53 Custom Domain
-- CloudWatch Monitoring
-- AWS Lambda Backend
-- Contact Form Integration
-
----
-
-# 📄 License
-
-This project is open source and available under the MIT License.
-
----
-
-⭐ If you found this project interesting, consider giving it a star!
+🌍 Portfolio: https://jahidalam.cloud
