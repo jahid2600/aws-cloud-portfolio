@@ -83,3 +83,43 @@ fetch("https://cqsalh5sgf.execute-api.ap-south-1.amazonaws.com/visitor-count")
         console.error("Error fetching visitor count:", error);
         visitorCountElement.textContent = "Unavailable";
     });
+
+
+    const contactForm = document.getElementById("contact-form");
+const contactStatus = document.getElementById("contact-status");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        contactStatus.textContent = "Sending message...";
+
+        const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+
+        try {
+            const response = await fetch("https://cqsalh5sgf.execute-api.ap-south-1.amazonaws.com/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                contactStatus.textContent = "Message sent successfully!";
+                contactForm.reset();
+            } else {
+                contactStatus.textContent = data.error || "Something went wrong. Please try again.";
+            }
+        } catch (error) {
+            console.error("Contact form error:", error);
+            contactStatus.textContent = "Unable to send message right now.";
+        }
+    });
+}
