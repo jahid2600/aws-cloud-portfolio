@@ -215,3 +215,7 @@
     font-size: 14px;
     color: #ff9900;
 }
+
+.hidden-field {
+    display: none;
+}
