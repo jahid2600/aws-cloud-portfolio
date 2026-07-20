@@ -400,3 +400,281 @@ p{
     transform: scale(1.05);
 
 }
+
+/* ==========================================
+   LIGHT THEME
+========================================== */
+
+body.light-theme {
+    background: #f8fafc;
+    color: #111827;
+}
+
+/* Header */
+body.light-theme .header {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .logo,
+body.light-theme .nav-links a {
+    color: #111827;
+}
+
+/* Hero Section */
+body.light-theme .hero {
+    background: #f8fafc;
+    color: #111827;
+}
+
+body.light-theme .hero h1,
+body.light-theme .hero h2,
+body.light-theme .hero-description {
+    color: #111827;
+}
+
+body.light-theme .hero-description {
+    color: #374151;
+}
+
+/* Cards */
+body.light-theme .info-card,
+body.light-theme .project-card,
+body.light-theme .certification-card,
+body.light-theme .skill-card,
+body.light-theme .profile-card {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Sections */
+body.light-theme section {
+    background: #f8fafc;
+    color: #111827;
+}
+
+body.light-theme .section-title h2,
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3 {
+    color: #111827;
+}
+
+body.light-theme p {
+    color: #374151;
+}
+
+/* Contact Form */
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .contact-form input::placeholder,
+body.light-theme .contact-form textarea::placeholder {
+    color: #6b7280;
+}
+
+/* Visitor Counter */
+body.light-theme .visitor-counter {
+    background: rgba(255, 153, 0, 0.12);
+    border-color: rgba(255, 153, 0, 0.4);
+}
+
+body.light-theme .visitor-counter .visitor-label {
+    color: #111827;
+}
+
+/* Theme Toggle */
+body.light-theme .theme-toggle {
+    background: #111827;
+    color: #ffffff;
+}
+
+/* ==========================================
+   LIGHT THEME FIXES - ABOUT, RESUME, CONTACT, FOOTER
+========================================== */
+
+/* About Me Section */
+body.light-theme #about,
+body.light-theme .about {
+    background: #ffffff;
+    color: #111827;
+}
+
+body.light-theme #about h2,
+body.light-theme #about h3,
+body.light-theme .about h2,
+body.light-theme .about h3 {
+    color: #111827;
+}
+
+body.light-theme #about p,
+body.light-theme .about p {
+    color: #374151;
+}
+
+body.light-theme .about-card,
+body.light-theme .about-content,
+body.light-theme .about-box {
+    background: #f8fafc;
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* Resume Section */
+body.light-theme #resume,
+body.light-theme .resume {
+    background: #f8fafc;
+    color: #111827;
+}
+
+body.light-theme #resume h2,
+body.light-theme #resume h3,
+body.light-theme .resume h2,
+body.light-theme .resume h3 {
+    color: #111827;
+}
+
+body.light-theme #resume p,
+body.light-theme .resume p {
+    color: #374151;
+}
+
+body.light-theme .resume-card,
+body.light-theme .resume-box,
+body.light-theme .resume-content {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* Contact Section */
+body.light-theme #contact,
+body.light-theme .contact {
+    background: #ffffff;
+    color: #111827;
+}
+
+body.light-theme #contact h2,
+body.light-theme #contact h3,
+body.light-theme .contact h2,
+body.light-theme .contact h3 {
+    color: #111827;
+}
+
+body.light-theme #contact p,
+body.light-theme .contact p {
+    color: #374151;
+}
+
+body.light-theme .contact-form {
+    background: #f8fafc;
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .contact-form input::placeholder,
+body.light-theme .contact-form textarea::placeholder {
+    color: #6b7280;
+}
+
+
+/* Footer */
+body.light-theme footer,
+body.light-theme .footer {
+    background: #111827;
+    color: #ffffff;
+}
+
+body.light-theme footer p,
+body.light-theme .footer p,
+body.light-theme .copyright {
+    color: #d1d5db;
+}
+
+body.light-theme footer a,
+body.light-theme .footer a {
+    color: #ff9900;
+}
+
+/* ==========================================
+   FINAL LIGHT THEME VARIABLE OVERRIDE
+========================================== */
+
+body.light-theme {
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --surface-light: #e2e8f0;
+    --text: #111827;
+    --text-secondary: #374151;
+    --border: #e5e7eb;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+/* Contact Section */
+body.light-theme #contact,
+body.light-theme .contact {
+    background: var(--background);
+    color: var(--text);
+}
+
+body.light-theme .contact-card,
+body.light-theme .contact-form,
+body.light-theme .contact-info,
+body.light-theme .form-group {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+body.light-theme .contact input,
+body.light-theme .contact textarea,
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+body.light-theme .contact input::placeholder,
+body.light-theme .contact textarea::placeholder {
+    color: #6b7280;
+}
+
+body.light-theme #contact-status {
+    color: var(--primary);
+}
+
+/* Footer */
+body.light-theme footer,
+body.light-theme .footer {
+    background: #111827;
+    color: #ffffff;
+}
+
+body.light-theme footer p,
+body.light-theme .footer p,
+body.light-theme .copyright {
+    color: #d1d5db;
+}
+
+body.light-theme footer a,
+body.light-theme .footer a {
+    color: var(--primary);
+}
+

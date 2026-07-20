@@ -1,37 +1,34 @@
 /* ==========================================
-   DARK / LIGHT MODE
+   DARK / LIGHT THEME TOGGLE
 ========================================== */
 
-const themeButton = document.querySelector(".theme-toggle");
-
+const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
 
-const currentTheme = localStorage.getItem("theme");
+if (themeToggle) {
+    const savedTheme = localStorage.getItem("theme");
 
-if (currentTheme === "light") {
-
-    body.classList.add("light-mode");
-
-    themeButton.textContent = "☀️";
-
-}
-
-themeButton.addEventListener("click", () => {
-
-    body.classList.toggle("light-mode");
-
-    if (body.classList.contains("light-mode")) {
-
-        themeButton.textContent = "☀️";
-
-        localStorage.setItem("theme", "light");
-
+    if (savedTheme === "light") {
+        body.classList.add("light-theme");
+        themeToggle.textContent = "☀️";
+        themeToggle.setAttribute("aria-label", "Switch to Dark Mode");
     } else {
-
-        themeButton.textContent = "🌙";
-
-        localStorage.setItem("theme", "dark");
-
+        body.classList.remove("light-theme");
+        themeToggle.textContent = "🌙";
+        themeToggle.setAttribute("aria-label", "Switch to Light Mode");
     }
 
-});
+    themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-theme");
+
+        if (body.classList.contains("light-theme")) {
+            localStorage.setItem("theme", "light");
+            themeToggle.textContent = "☀️";
+            themeToggle.setAttribute("aria-label", "Switch to Dark Mode");
+        } else {
+            localStorage.setItem("theme", "dark");
+            themeToggle.textContent = "🌙";
+            themeToggle.setAttribute("aria-label", "Switch to Light Mode");
+        }
+    });
+}
