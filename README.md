@@ -2,9 +2,9 @@
 
 [![Deploy Portfolio](https://github.com/jahid2600/aws-cloud-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/jahid2600/aws-cloud-portfolio/actions/workflows/deploy.yml)
 
-A modern, responsive personal portfolio website built using **HTML, CSS, and JavaScript**, deployed on **Amazon Web Services**, and automated using **GitHub Actions CI/CD**.
+A responsive personal portfolio website built using **HTML5, CSS3, and JavaScript**, deployed on **AWS**, automated with **GitHub Actions CI/CD**, and enhanced with **serverless AWS backend features**.
 
-This project is part of my journey toward becoming an **AWS Cloud Engineer** and is being built step-by-step as a real-world cloud portfolio project.
+This project demonstrates static website hosting, custom domain setup, HTTPS, CI/CD automation, serverless APIs, database integration, email handling, and basic cloud monitoring.
 
 ---
 
@@ -16,115 +16,228 @@ This project is part of my journey toward becoming an **AWS Cloud Engineer** and
 
 ## 📌 Project Versions
 
-### ✅ Version 1.0 — Static Website Hosting on AWS
+### ✅ Version 1.0 — Static Website Hosting
 
-In Version 1, I built and deployed a personal portfolio website using:
+In Version 1, I built and deployed a responsive personal portfolio website using static web technologies and AWS hosting services.
 
-* HTML
-* CSS
-* JavaScript
-* Amazon S3
-* Amazon CloudFront
+**Implemented:**
 
-The website was hosted as a static website using **Amazon S3**, and **CloudFront** was used for faster global content delivery.
-
----
-
-### ✅ Version 2.0 — Custom Domain + HTTPS
-
-In Version 2, I connected my portfolio website with a custom domain and secured it using HTTPS.
-
-Implemented services:
-
-* Amazon Route 53
-* AWS Certificate Manager
-* Amazon CloudFront
-* Custom Domain: `jahidalam.cloud`
-* HTTPS using SSL/TLS certificate
-
-This version made the portfolio more professional, secure, and production-ready.
+- Designed portfolio using HTML5, CSS3, and JavaScript
+- Hosted static website files on Amazon S3
+- Configured Amazon CloudFront for global content delivery
+- Improved website speed and reliability using CDN-based delivery
 
 ---
 
-### ✅ Version 3.0 — CI/CD Automation with GitHub Actions
+### ✅ Version 2.0 — Custom Domain, HTTPS and CI/CD
 
-In Version 3, I automated the deployment process using **GitHub Actions** and AWS **OIDC authentication**.
+In Version 2, I made the portfolio production-ready by adding a custom domain, HTTPS, and automated deployment.
 
-Now, whenever changes are pushed to the GitHub repository, the workflow automatically deploys the latest website files to Amazon S3 and refreshes the CloudFront distribution.
+**Implemented:**
 
-Implemented CI/CD components:
-
-* GitHub Actions workflow
-* AWS OIDC Identity Provider
-* IAM Role for GitHub Actions
-* IAM Policy with required deployment permissions
-* GitHub Repository Secrets
-* GitHub Repository Variables
-* Automated S3 deployment
-* CloudFront cache invalidation
-* Secure deployment without long-term AWS access keys
+- Configured custom domain `jahidalam.cloud` using Amazon Route 53
+- Enabled HTTPS using AWS Certificate Manager
+- Connected CloudFront with custom domain and SSL/TLS certificate
+- Created GitHub Actions deployment workflow
+- Configured AWS OIDC Identity Provider
+- Created IAM Role for GitHub Actions
+- Used GitHub Secrets and Variables for deployment configuration
+- Automated deployment to Amazon S3
+- Automated CloudFront cache invalidation after deployment
+- Removed long-term AWS access keys from the CI/CD process
 
 ---
 
-## 🏗️ Architecture Overview
+### ✅ Version 3.0 — Serverless Portfolio Application
 
-![Version 3 CI/CD Architecture](assets/images/version-3-cicd-architecture.png)
+In Version 3, I added real backend functionality using AWS serverless services.
 
-The Version 3 architecture automates the deployment process using GitHub Actions and AWS OIDC.  
-Whenever code is pushed to the main branch, GitHub Actions securely authenticates with AWS, assumes the IAM role, deploys files to Amazon S3, and invalidates the CloudFront cache so the latest version becomes live on jahidalam.cloud.
+**Implemented:**
+
+- Added serverless visitor counter
+- Created DynamoDB table to store visitor count
+- Created Lambda function to update and return visitor count
+- Created API Gateway route `GET /visitor-count`
+- Integrated visitor counter with frontend JavaScript
+- Added serverless contact form
+- Created Lambda function to process contact form messages
+- Used Amazon SES to send contact form messages to email inbox
+- Created API Gateway route `POST /contact`
+- Added frontend form validation using JavaScript
+- Added backend validation inside Lambda
+- Added honeypot spam protection for contact form
+- Configured CORS for local testing and live domain
+- Used CloudWatch Logs to monitor and debug Lambda executions
+- Fixed dark/light theme toggle and asset caching issues
+
+---
+
+## 🏗️ Final Architecture
+
+```text
+User visits jahidalam.cloud
+        ↓
+Route 53
+        ↓
+CloudFront
+        ↓
+Amazon S3
+        ↓
+Static Portfolio Website
+        ↓
+Frontend JavaScript
+
+Feature 1: Visitor Counter
+
+GET /visitor-count
+        ↓
+Amazon API Gateway
+        ↓
+AWS Lambda
+        ↓
+Amazon DynamoDB
+        ↓
+Visitor count displayed on website
+
+Feature 2: Contact Form
+
+POST /contact
+        ↓
+Amazon API Gateway
+        ↓
+AWS Lambda
+        ↓
+Amazon SES
+        ↓
+Email received in inbox
+
+Monitoring and Debugging
+
+AWS Lambda
+        ↓
+Amazon CloudWatch Logs
+```
+
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
 
-* HTML
-* CSS
-* JavaScript
+- HTML5
+- CSS3
+- JavaScript
 
 ### AWS Services
 
-* Amazon S3
-* Amazon CloudFront
-* Amazon Route 53
-* AWS Certificate Manager
-* AWS IAM
-* AWS OIDC
+- Amazon S3
+- Amazon CloudFront
+- Amazon Route 53
+- AWS Certificate Manager
+- AWS IAM
+- Amazon API Gateway
+- AWS Lambda
+- Amazon DynamoDB
+- Amazon SES
+- Amazon CloudWatch
 
-### DevOps / Automation
+### DevOps and Tools
 
-* GitHub
-* GitHub Actions
-* CI/CD Pipeline
-* GitHub Secrets
-* GitHub Variables
-
----
-
-## 🔐 Security Improvements in Version 3
-
-This project uses **OIDC-based authentication** between GitHub Actions and AWS.
-
-Instead of storing long-term AWS access keys in GitHub, GitHub Actions securely assumes an IAM Role using OIDC.
-
-Benefits:
-
-* No permanent AWS access keys stored in GitHub
-* More secure deployment process
-* Least-privilege IAM permissions
-* Production-style CI/CD setup
+- Git
+- GitHub
+- GitHub Actions
+- AWS OIDC
+- CI/CD Pipeline
 
 ---
 
-## ⚙️ CI/CD Workflow Summary
+## ✨ Key Features
 
-The deployment workflow performs the following steps:
+- Responsive personal portfolio website
+- Custom domain with HTTPS
+- Automated CI/CD deployment
+- Serverless visitor counter
+- Serverless contact form
+- Contact form validation
+- Honeypot spam protection
+- Dark/light theme toggle
+- CloudFront cache invalidation
+- CloudWatch Logs for debugging
+- Secure deployment without long-term AWS access keys
 
-1. Checkout the latest repository code
-2. Authenticate with AWS using OIDC
-3. Sync website files to the S3 bucket
-4. Invalidate CloudFront cache
-5. Deploy the latest version of the portfolio website
+---
+
+## 🔐 Security Highlights
+
+- Used AWS OIDC with GitHub Actions instead of storing long-term AWS access keys
+- Created IAM Role for secure CI/CD deployment
+- Used least-privilege IAM permissions for deployment and Lambda access
+- Stored sensitive email configuration in Lambda environment variables
+- Configured CORS for frontend-to-API communication
+- Added backend validation to prevent invalid form submissions
+- Added honeypot field to reduce bot/spam submissions
+
+---
+
+## ⚙️ CI/CD Workflow
+
+The deployment pipeline runs automatically when changes are pushed to the main branch.
+
+```text
+Developer pushes code
+        ↓
+GitHub Repository
+        ↓
+GitHub Actions workflow
+        ↓
+AWS OIDC authentication
+        ↓
+IAM Role assumed securely
+        ↓
+Files synced to Amazon S3
+        ↓
+CloudFront cache invalidated
+        ↓
+Latest website version becomes live
+```
+
+---
+
+## 🧩 Serverless Features
+
+### Visitor Counter
+
+The visitor counter tracks portfolio visits using a serverless backend.
+
+```text
+Frontend JavaScript
+        ↓
+GET /visitor-count
+        ↓
+API Gateway
+        ↓
+Lambda
+        ↓
+DynamoDB
+```
+
+### Contact Form
+
+The contact form allows visitors to send messages directly from the website.
+
+```text
+Frontend Contact Form
+        ↓
+POST /contact
+        ↓
+API Gateway
+        ↓
+Lambda
+        ↓
+Amazon SES
+        ↓
+Email Inbox
+```
 
 ---
 
@@ -135,15 +248,21 @@ aws-cloud-portfolio/
 │
 ├── index.html
 ├── README.md
+├── CHANGELOG.md
+│
 ├── assets/
 │   ├── images/
 │   └── documents/
 │
 ├── css/
-│   └── style files
+│   ├── design-system.css
+│   ├── footer.css
+│   └── other style files
 │
 ├── js/
-│   └── script files
+│   ├── main.js
+│   ├── theme.js
+│   └── other script files
 │
 └── .github/
     └── workflows/
@@ -152,41 +271,70 @@ aws-cloud-portfolio/
 
 ---
 
-## 🎯 What I Learned
+## 📊 Monitoring and Debugging
+
+CloudWatch Logs were used to monitor and debug Lambda function executions.
+
+**Monitored components:**
+
+- Visitor counter Lambda logs
+- Contact form Lambda logs
+- API request errors
+- Lambda execution errors
+- CORS-related issues
+- SES email sending issues
+
+This helped verify that the backend functions were executing correctly and that the serverless features were working as expected.
+
+---
+
+## 🧠 What I Learned
 
 Through this project, I learned:
 
-* How to host a static website on Amazon S3
-* How to distribute content globally using CloudFront
-* How to connect a custom domain using Route 53
-* How to enable HTTPS using AWS Certificate Manager
-* How to create IAM policies and IAM roles
-* How to use GitHub Actions for CI/CD
-* How to use AWS OIDC for secure deployments
-* How to automate deployment from GitHub to AWS
+- How to host a static website on Amazon S3
+- How to use CloudFront for content delivery
+- How to configure a custom domain using Route 53
+- How to enable HTTPS using AWS Certificate Manager
+- How to automate deployment using GitHub Actions
+- How to use AWS OIDC for secure CI/CD
+- How to create IAM roles and policies
+- How to build serverless APIs using API Gateway and Lambda
+- How to store data in DynamoDB
+- How to send emails using Amazon SES
+- How to configure CORS for frontend API calls
+- How to debug Lambda functions using CloudWatch Logs
+- How to structure a real-world cloud portfolio project
 
 ---
 
-## 📌 Current Version
+## 📌 Current Status
 
-**Version 3.0 — CI/CD Automation Completed**
+**Completed Version:** `v3.0`
 
-The portfolio website is now deployed using an automated CI/CD pipeline with GitHub Actions and AWS.
+**Final Version 3.0 includes:**
+
+- Static website hosting
+- Custom domain and HTTPS
+- CI/CD automation
+- Serverless visitor counter
+- Serverless contact form
+- Form validation and spam protection
+- CloudWatch logging and debugging
 
 ---
 
-## 🚧 Upcoming Version
+## 🚀 Future Improvements
 
-### Version 4.0 — Visitor Counter
+Possible future improvements:
 
-Planned features:
-
-* Serverless visitor counter
-* Amazon API Gateway
-* AWS Lambda
-* Amazon DynamoDB
-* JavaScript API integration
-* Real-time visitor count on portfolio website
+- Add CloudWatch alarms for Lambda errors
+- Store contact form messages in DynamoDB
+- Add Terraform Infrastructure as Code
+- Add API Gateway throttling
+- Add custom domain for API Gateway
+- Add monitoring dashboard
+- Improve accessibility and SEO
 
 ---
 
@@ -194,8 +342,8 @@ Planned features:
 
 **MD JAHID ALAM**
 
-AWS Certified Cloud Practitioner
-Aspiring AWS Cloud Engineer
+AWS Certified Cloud Practitioner  
+Aspiring AWS Cloud Engineer  
 Building real-world AWS Cloud and DevOps projects
 
 🌍 Portfolio: https://jahidalam.cloud
